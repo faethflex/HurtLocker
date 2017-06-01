@@ -58,7 +58,33 @@ public class ShoppingListItem
 
 	private void timesItemNameAppears()
 	{
+		matcher = JerkSONPatterns.nameApples.matcher(itemName);
+		if (matcher.find())
+		{
+			numberOfApple++;
+			numberOfItemName = numberOfApple;
+		}
 
+		matcher = JerkSONPatterns.nameBread.matcher(itemName);
+		if (matcher.find())
+		{
+			numberOfBread++;
+			numberOfItemName = numberOfBread;
+		}
+
+		matcher = JerkSONPatterns.nameCookies.matcher(itemName);
+		if (matcher.find())
+		{
+			numberOfCookie++;
+			numberOfItemName = numberOfCookie;
+		}
+
+		matcher = JerkSONPatterns.nameMilk.matcher(itemName);
+		if (matcher.find())
+		{
+			numberOfMilk++;
+			numberOfItemName = numberOfMilk;
+		}
 	}
 
 	private void timesItemPriceAppears()

@@ -40,4 +40,17 @@ public class ShoppingListItemTest
 		// then
 		Assert.assertEquals("These strings should be identical", expected, actual);
 	}
+
+	@Test
+	public void testTimesItemNameAppears()
+	{
+		// given
+		int expected = 2;
+
+		// when
+		int actual = ShoppingListItem.numberOfBread;
+
+		// then
+		Assert.assertEquals("These values should be equal", expected, actual);
+	}
 }
