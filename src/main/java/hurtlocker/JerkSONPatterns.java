@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
  */
 public class JerkSONPatterns
 {
-	public static Pattern nameCapture = Pattern.compile("[A-z]+?:[A-z]+\\\\*");
-	public static Pattern priceCapture = Pattern.compile("[A-z]+?:\\d+^[A-z]+\\\\*");
-	public static Pattern typeCapture = Pattern.compile("[A-z]+?:[fF][A-z]+\\b");
-	public static Pattern expirationCapture = Pattern.compile("[A-z]+\\d+/\\d+/\\d+\\b");
+	public static Pattern nameCapture = Pattern.compile("(?!([A-z]+:))[A-z]+\\\\*");
+	public static Pattern priceCapture = Pattern.compile("(?!([A-z]+:))\\d+\\.+\\d+\\\\*");
+	public static Pattern typeCapture = Pattern.compile("(?!([A-z]+:))[[fF][A-z]]+\\b");
+	public static Pattern expirationCapture = Pattern.compile("(?!([A-z]+:))\\d+/\\d+/\\d+\\b");
 
 	public static Pattern[] jerkSonPatternArray = {nameCapture, priceCapture, typeCapture, expirationCapture};
 

@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * Created by gregoryfletcher on 5/31/17.
  */
@@ -54,12 +56,12 @@ public class RawDataParserTest
 	public void testCaptureObjectFields()
 	{
 		//given
-		String expected = "[Cookies, 2.25, Food, 1/25/2016]";
+		String expected = "[CoOkieS, 2.25, Food, 1/25/2016]";
 
 		// when
 		String[] actual = parseData.captureObjectFields(keyValuePairs, JerkSONPatterns.jerkSonPatternArray);
 
 		// then
-		Assert.assertEquals("These strings should be identical", expected, actual);
+		Assert.assertEquals("These strings should be identical", expected, Arrays.toString(actual));
 	}
 }

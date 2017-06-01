@@ -22,7 +22,48 @@ public class RawDataParser
 
 	public String[] captureObjectFields(String[] fields, Pattern[] patterns)
 	{
-		String[] s = new String[2];
-		return s;
+		String[] condition = new String[4];
+		String errorMessage = "Hell to the no, to the no, no, no.";
+		Matcher objectNameField = patterns[0].matcher(fields[0]);
+		Matcher objectPriceField = patterns[1].matcher(fields[1]);
+		Matcher objectTypeField = patterns[2].matcher(fields[2]);
+		Matcher objectExpirationField = patterns[3].matcher(fields[3]);
+
+		if(objectNameField.find())
+		{
+			condition[0] = objectNameField.group();
+		}
+		else
+		{
+			condition[0] = errorMessage;
+		}
+
+		if(objectPriceField.find())
+		{
+			condition[1] = objectPriceField.group();
+		}
+		else
+		{
+			condition[1] = errorMessage;
+		}
+
+		if(objectTypeField.find())
+		{
+			condition[2] = objectTypeField.group();
+		}
+		else
+		{
+			condition[2] = errorMessage;
+		}
+
+		if(objectExpirationField.find())
+		{
+			condition[3] = objectExpirationField.group();
+		}
+		else
+		{
+			condition[3] = errorMessage;
+		}
+		return condition;
 	}
 }
