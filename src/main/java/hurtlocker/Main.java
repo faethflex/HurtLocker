@@ -5,6 +5,7 @@ import org.apache.commons.io.IOUtils;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 public class Main
 {
@@ -18,15 +19,19 @@ public class Main
 
     public static void main(String[] args) throws Exception
 	{
-		FileOutputStream receipt = new FileOutputStream("receipt.txt");
+		RawDataParser parseData = new RawDataParser();
+		Invoice invoice1 = new Invoice();
+		FileOutputStream receipt = new FileOutputStream("invoiceCopy.txt");
 		BufferedOutputStream filteredReceipt = new BufferedOutputStream(receipt);
-		PrintStream printedReceipt = new PrintStream(filteredReceipt);
+		PrintStream printedReceipt = new PrintStream(filteredReceipt, true);
 		System.setOut(printedReceipt);
 
 
 		String output = (new Main()).readRawDataToString();
-		
-        System.out.println(output);
+		List<String[]> shoppingListRaw = parseData.composeNewList(output);
+		ShoppingListItem[] realShoppingList = parseData.manifestArrayOfShoppingListItems(shoppingListRaw);
+		String printedInvoice = invoice1.printInvoice(realShoppingList);
+        System.out.print(printedInvoice);
 
     }
 }

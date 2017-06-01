@@ -17,8 +17,8 @@ public class ShoppingListItemTest
 	@Before
 	public void startup()
 	{
-		prototype = new ShoppingListItem("Bread", "1.23", "Food", "2/25/2016");
-		cloneOfPrototype = new ShoppingListItem("Bread", "1.23", "Food", "2/25/2016");
+		prototype = new ShoppingListItem("Milk", "1.23", "Food", "2/25/2016");
+		cloneOfPrototype = new ShoppingListItem("Milk", "1.23", "Food", "2/25/2016");
 		tariqTroll = new ShoppingListItem("Hell to the no, to the no, no, no.", "1.23", "Food", "2/25/2016");
 	}
 
@@ -32,7 +32,7 @@ public class ShoppingListItemTest
 	public void testToString()
 	{
 		// given
-		String expected = "Bread 1.23 Food 2/25/2016";
+		String expected = "Milk 1.23 Food 2/25/2016";
 
 		// when
 		String actual = prototype.toString();
@@ -48,7 +48,7 @@ public class ShoppingListItemTest
 		int expected = 2;
 
 		// when
-		int actual = ShoppingListItem.numberOfBread;
+		int actual = ShoppingListItem.numberOfMilk;
 
 		// then
 		Assert.assertEquals("These values should be equal", expected, actual);
@@ -61,7 +61,7 @@ public class ShoppingListItemTest
 		int expected = 2;
 
 		// when
-		int actual = ShoppingListItem.basicBreadPriceCount;
+		int actual = ShoppingListItem.cheapMilkPriceCount;
 
 		// then
 		Assert.assertEquals("These counts should be equal", expected, actual);
