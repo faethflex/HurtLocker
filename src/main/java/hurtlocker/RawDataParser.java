@@ -66,4 +66,14 @@ public class RawDataParser
 		}
 		return condition;
 	}
+
+	public ShoppingListItem manifestShoppingListItem(String[] values)
+	{
+		return new ShoppingListItem(values[0], values[1], values[2], values[3]);
+	}
+
+//	public ShoppingListItem[] manifestArrayOfShoppingListItems(List<String[]> monad)
+//	{
+//
+//	}
 }

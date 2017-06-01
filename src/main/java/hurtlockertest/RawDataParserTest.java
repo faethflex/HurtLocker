@@ -3,6 +3,7 @@ package hurtlockertest;
 import hurtlocker.JerkSONPatterns;
 import hurtlocker.Main;
 import hurtlocker.RawDataParser;
+import hurtlocker.ShoppingListItem;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,5 +64,20 @@ public class RawDataParserTest
 
 		// then
 		Assert.assertEquals("These strings should be identical", expected, Arrays.toString(actual));
+	}
+
+	@Test
+	public void testManifestShoppingListItems()
+	{
+		// given
+		String[] values = parseData.captureObjectFields(keyValuePairs, JerkSONPatterns.jerkSonPatternArray);
+		ShoppingListItem expected = new ShoppingListItem("CoOkieS", "2.25", "Food", "1/25/2016");
+
+		// when
+		ShoppingListItem actual = parseData.manifestShoppingListItem(values);
+
+		// then
+		Assert.assertTrue(actual.equals(expected));
+
 	}
 }
