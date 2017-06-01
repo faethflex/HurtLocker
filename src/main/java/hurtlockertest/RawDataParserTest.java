@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by gregoryfletcher on 5/31/17.
@@ -79,5 +80,31 @@ public class RawDataParserTest
 		// then
 		Assert.assertTrue(actual.equals(expected));
 
+	}
+
+	@Test
+	public void testManifestArrayOfShoppingListItems() throws Exception
+	{
+		// given
+		int expected = 28;
+
+		// when
+		ShoppingListItem[] actual = parseData.manifestArrayOfShoppingListItems(parseData.composeNewList((new Main()).readRawDataToString()));
+
+		// then
+		Assert.assertEquals("These values should be the same", expected, actual.length);
+	}
+
+	@Test
+	public void testComposeNewList() throws Exception
+	{
+		// given
+		int expected = 28;
+
+		// when
+		List actual = parseData.composeNewList((new Main()).readRawDataToString());
+
+		// then
+		Assert.assertEquals("These values should be the same", expected, actual.size());
 	}
 }

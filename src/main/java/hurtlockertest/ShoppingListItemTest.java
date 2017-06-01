@@ -19,7 +19,7 @@ public class ShoppingListItemTest
 	{
 		prototype = new ShoppingListItem("Bread", "1.23", "Food", "2/25/2016");
 		cloneOfPrototype = new ShoppingListItem("Bread", "1.23", "Food", "2/25/2016");
-		tariqTroll = new ShoppingListItem("Hell to the nah", "1.23", "Food", "2/25/2016");
+		tariqTroll = new ShoppingListItem("Hell to the no, to the no, no, no.", "1.23", "Food", "2/25/2016");
 	}
 
 	@Test
@@ -52,5 +52,31 @@ public class ShoppingListItemTest
 
 		// then
 		Assert.assertEquals("These values should be equal", expected, actual);
+	}
+
+	@Test
+	public void testTimesItemPriceAppears()
+	{
+		// given
+		int expected = 2;
+
+		// when
+		int actual = ShoppingListItem.basicBreadPriceCount;
+
+		// then
+		Assert.assertEquals("These counts should be equal", expected, actual);
+	}
+
+	@Test
+	public void testSetTariqTrollCount()
+	{
+		// given
+		int expected = 1;
+
+		// when
+		int actual = ShoppingListItem.tariqTrollCount;
+
+		// then
+		Assert.assertEquals("These counts should be the same", expected, actual);
 	}
 }

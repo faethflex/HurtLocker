@@ -19,8 +19,7 @@ public class JerkSONPatterns
 	public static Pattern nameBread = Pattern.compile("[A-z]{5}");
 	public static Pattern nameCookies = Pattern.compile("[A-z,0-9]{7}");
 
-	public static Pattern priceValue23 = Pattern.compile("\\.23");
-	public static Pattern priceValue25 = Pattern.compile("\\.25");
+	public static Pattern priceValue23 = Pattern.compile("0\\.23");
 	public static Pattern priceValue123 = Pattern.compile("1\\.23");
 	public static Pattern priceValue225 = Pattern.compile("2\\.25");
 	public static Pattern priceValue323 = Pattern.compile("3\\.23");

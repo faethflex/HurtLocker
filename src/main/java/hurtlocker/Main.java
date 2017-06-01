@@ -2,6 +2,10 @@ package hurtlocker;
 
 import org.apache.commons.io.IOUtils;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 public class Main
 {
 
@@ -14,7 +18,14 @@ public class Main
 
     public static void main(String[] args) throws Exception
 	{
-        String output = (new Main()).readRawDataToString();
+		FileOutputStream receipt = new FileOutputStream("receipt.txt");
+		BufferedOutputStream filteredReceipt = new BufferedOutputStream(receipt);
+		PrintStream printedReceipt = new PrintStream(filteredReceipt);
+		System.setOut(printedReceipt);
+
+
+		String output = (new Main()).readRawDataToString();
+		
         System.out.println(output);
 
     }

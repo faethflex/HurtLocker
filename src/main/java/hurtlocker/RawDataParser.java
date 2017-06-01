@@ -1,5 +1,6 @@
 package hurtlocker;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -72,8 +73,25 @@ public class RawDataParser
 		return new ShoppingListItem(values[0], values[1], values[2], values[3]);
 	}
 
-//	public ShoppingListItem[] manifestArrayOfShoppingListItems(List<String[]> monad)
-//	{
-//
-//	}
+	public ShoppingListItem[] manifestArrayOfShoppingListItems(List<String[]> monad)
+	{
+		ShoppingListItem[] arrayOfItems = new ShoppingListItem[monad.size()];
+		for (int count = 0; count < arrayOfItems.length; count++)
+		{
+			arrayOfItems[count] = manifestShoppingListItem(captureObjectFields(monad.get(count), JerkSONPatterns.jerkSonPatternArray));
+			count++;
+		}
+		return arrayOfItems;
+	}
+
+	public List<String[]> composeNewList(String rawData)
+	{
+		List<String[]> filteredDataList = new ArrayList<>();
+		String[] arrayOfRawData = splitData(rawData);
+		for (String field : arrayOfRawData)
+		{
+			filteredDataList.add(keyValueCapture(field));
+		}
+		return filteredDataList;
+	}
 }
