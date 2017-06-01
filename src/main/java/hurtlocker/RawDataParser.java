@@ -10,22 +10,19 @@ import java.util.regex.Pattern;
  */
 public class RawDataParser
 {
-	public String parseData(List<String> rawData) throws Exception
+	public String[] splitData(String rawData)
 	{
-		Pattern full = Pattern.compile("[A-z]{4}:[A-z]+\\\\*;[a-z]{5}:\\d.\\d+\\\\*;[a-z]{4}:[A-z]+;expiration:\\d/\\d+/\\d{4}");
-		for (String item : rawData)
-		{
-			Matcher object = full.matcher(item);
-			if (object.matches())
-			{
-				System.out.println(object.group());
-			}
-			else
-			{
-				System.out.println("Match not found");
-			}
-		}
+		return rawData.split("##");
+	}
 
-		return " ";
+	public String[] keyValueCapture(String field)
+	{
+		return field.split("[;|^|@|!|*|%]");
+	}
+
+	public String[] captureObjectFields(String[] fields, Pattern[] patterns)
+	{
+		String[] s = new String[2];
+		return s;
 	}
 }
